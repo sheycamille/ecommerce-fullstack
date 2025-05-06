@@ -249,12 +249,13 @@ app.put('/api/products/:id', async (req, res) => {
 export default app;
 
 // Start the server if this file is run directly
-if (import.meta.url === `file://${process.argv[1]}`) {
+if (import.meta.url.startsWith('file:')) {
   app.listen(PORT, () => {
     logger.info(`Server running on port ${PORT}`);
     logger.info(`API available at http://localhost:${PORT}/api`);
   });
 }
+
 
 
 
